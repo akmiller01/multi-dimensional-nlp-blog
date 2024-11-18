@@ -1,9 +1,5 @@
 # ! pip install datasets evaluate transformers accelerate huggingface_hub --quiet
 
-# from huggingface_hub import login
-
-# login()
-
 import types
 from datasets import load_dataset
 from transformers import (
@@ -18,8 +14,14 @@ from torch.nn import BCEWithLogitsLoss, CrossEntropyLoss, MSELoss
 from transformers.modeling_outputs import SequenceClassifierOutput
 import evaluate
 import numpy as np
-
+from huggingface_hub import login
+from dotenv import load_dotenv
 from typing import Optional, Tuple, Union
+
+load_dotenv()
+HF_TOKEN = os.getenv('HF_TOKEN')
+login(token=HF_TOKEN)
+
 
 card = "alex-miller/ODABert"
 tokenizer = AutoTokenizer.from_pretrained(card, model_max_length=512)

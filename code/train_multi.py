@@ -1,10 +1,3 @@
-# ! pip install datasets evaluate transformers accelerate huggingface_hub --quiet
-
-# from huggingface_hub import login
-
-# login()
-
-import types
 from datasets import load_dataset
 from transformers import (
     AutoTokenizer,
@@ -15,8 +8,13 @@ from transformers import (
 import torch
 import evaluate
 import numpy as np
-
 from bert_multi_model import BertForMultiSequenceClassification
+from huggingface_hub import login
+from dotenv import load_dotenv
+
+load_dotenv()
+HF_TOKEN = os.getenv('HF_TOKEN')
+login(token=HF_TOKEN)
 
 card = "alex-miller/ODABert"
 tokenizer = AutoTokenizer.from_pretrained(card, model_max_length=512)
