@@ -11,6 +11,7 @@ import numpy as np
 from bert_multi_model import BertForMultiSequenceClassification
 from huggingface_hub import login
 from dotenv import load_dotenv
+import os
 
 load_dotenv()
 HF_TOKEN = os.getenv('HF_TOKEN')

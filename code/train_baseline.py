@@ -17,6 +17,7 @@ import numpy as np
 from huggingface_hub import login
 from dotenv import load_dotenv
 from typing import Optional, Tuple, Union
+import os
 
 load_dotenv()
 HF_TOKEN = os.getenv('HF_TOKEN')
