@@ -52,7 +52,7 @@ def main():
     # Remove some of the full negative examples
     negative = dataset.filter(lambda example: example['disability_sig'] == 0)
     positive = dataset.filter(lambda example: example['disability_sig'] != 0)
-    negative = negative.shuffle(seed=42).select(range(positive.num_rows * 2))
+    negative = negative.shuffle(seed=42).select(range(positive.num_rows))
     dataset = concatenate_datasets([negative, positive])
     count = Counter()
     count.update(dataset['disability_sig'])

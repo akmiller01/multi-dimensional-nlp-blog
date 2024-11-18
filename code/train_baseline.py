@@ -168,9 +168,9 @@ model.class_weights = weights
 training_args = TrainingArguments(
     'uni-dimensional-disability',
     learning_rate=1e-6,
-    per_device_train_batch_size=24,
-    per_device_eval_batch_size=24,
-    num_train_epochs=10,
+    per_device_train_batch_size=32,
+    per_device_eval_batch_size=32,
+    num_train_epochs=5,
     weight_decay=0.01,
     evaluation_strategy='epoch',
     save_strategy='epoch',
